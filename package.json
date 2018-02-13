@@ -1,0 +1,21 @@
+{
+    "name": "battlecavern",
+    "version": "1.0.0",
+    "main": "main.jsx",
+    "repository": "git@github.com:battlecavern/battlecavern.github.io.git",
+    "author": "Battle Cavern Developers",
+    "license": "GPL-3.0",
+    "private": true,
+    "scripts": {
+        "build": "npx webpack"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.9",
+        "style-loader": "^0.20.1",
+        "webpack": "^3.11.0"
+    }
+}
