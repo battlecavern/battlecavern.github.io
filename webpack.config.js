@@ -12,11 +12,11 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /.jsx?$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['react', 'env']
+                    presets: ['react', 'env', 'minify']
                 }
             }
         ]
