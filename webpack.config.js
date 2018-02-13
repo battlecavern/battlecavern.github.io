@@ -10,13 +10,15 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ],
-        loaders: {
-            test: /.jsx?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: ['env', 'react']
+        loaders: [
+            {
+                test: /.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['env', 'react']
+                }
             }
-        }
+        ]
     }
 };
