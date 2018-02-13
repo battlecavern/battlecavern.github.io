@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sizzle from 'sizzle';
 import './main.css';
 
 class NavBar extends React.Component {
@@ -15,5 +14,5 @@ class NavBar extends React.Component {
 
 ReactDOM.render(
     <NavBar />,
-    Sizzle('body')
+    document.getElementsByTagName('body')[0]
 );
