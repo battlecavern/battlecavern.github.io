@@ -6,7 +6,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div id="nav">
-                <a href="/" class="nav-item" id="home">Home</a>
+                <a href="/" className="nav-item" id="home">Home</a>
             </div>
         );
     }
