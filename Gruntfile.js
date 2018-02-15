@@ -6,7 +6,7 @@ module.exports = function (grunt) {
       target: ['*.js', '*.jsx']
     },
     watch: {
-      files: ['*.js', '*.jsx'],
+      files: ['*.js', '*.jsx', '*.css'],
       tasks: ['eslint', 'webpack']
     },
     webpack: {

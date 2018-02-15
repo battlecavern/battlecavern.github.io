@@ -1,3 +1,9 @@
-#nav {
-    
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    opacity: 0.6;
 }
