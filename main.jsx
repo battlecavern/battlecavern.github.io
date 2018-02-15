@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './main.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import $ from 'jquery'
+import './main.css'
+
+const { Fragment } = React
 
 class NavBar extends React.Component {
-    render() {
-        return (
-            <div id="nav">
-                <a href="/" className="nav-item" id="home">Home</a>
-            </div>
-        );
-    }
+  render () {
+    return (
+      <Fragment>
+        <a href="/" className="nav-item" id="nav-home">
+          Home
+        </a>
+      </Fragment>
+    )
+  }
 }
 
-ReactDOM.render(
-    <NavBar />,
-    document.getElementsByTagName('body')[0]
-);
+ReactDOM.render(<NavBar />, $('#nav').get(0))
