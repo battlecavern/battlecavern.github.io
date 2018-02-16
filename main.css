@@ -7,3 +7,16 @@ a {
 a:hover {
     opacity: 0.6;
 }
+#nav {
+    background-image: url('/gradient.svg');
+    background-size: 100vw;
+    padding: 20px 20px 20px 20px;
+}
+.nav-item {
+    padding: inherit;
+    color: darkslategrey;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}

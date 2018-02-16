@@ -28733,7 +28733,7 @@ exports = module.exports = __webpack_require__(30)(false);
 
 
 // module
-exports.push([module.i, "* {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\n    text-decoration: none;\r\n}\r\na:hover {\r\n    opacity: 0.6;\r\n}", ""]);
+exports.push([module.i, "* {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\n    text-decoration: none;\r\n}\r\na:hover {\r\n    opacity: 0.6;\r\n}\r\n#nav {\r\n    background-image: url('/gradient.svg');\r\n    background-size: 100vw;\r\n    padding: 20px 20px 20px 20px;\r\n}\r\n.nav-item {\r\n    padding: inherit;\r\n    color: darkslategrey;\r\n}\r\nhtml, body {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n", ""]);
 
 // exports
 
