@@ -50,7 +50,7 @@ class NavBar extends React.Component {
   render () {
     return (
       <Fragment>
-        <button onClick={this.themeChange}>Change Theme</button>
+        <button onClick={this.themeChange} id="themeChanger">Change Theme</button>
         <a href="/" className="nav-item" id="nav-home">
           Home
         </a>
