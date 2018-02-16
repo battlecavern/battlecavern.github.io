@@ -19,6 +19,10 @@ function getQuery () {
 }
 
 const { Fragment } = React
+const themeObject = {
+  dark: 'Zekrom',
+  light: 'Reshiram'
+}
 const themes = ['light', 'dark']
 const theme =
   (themes.includes(getQuery().theme) && getQuery().theme) ||
@@ -30,10 +34,7 @@ class NavBar extends React.Component {
     let { value: themeChange } = await swal({
       title: 'Change theme',
       input: 'select',
-      inputOptions: {
-        dark: 'Dark',
-        light: 'Light'
-      }
+      inputOptions: themeObject
     })
     if (themeChange) {
       swal({
@@ -65,6 +66,6 @@ $('*').addClass(`${theme}-theme`)
 if (getQuery().themeChange) {
   swal({
     type: 'success',
-    text: `Successfully changed to ${getQuery().themeChange} theme`
+    text: `Successfully changed to ${themeObject[getQuery().themeChange]} theme`
   })
 }
