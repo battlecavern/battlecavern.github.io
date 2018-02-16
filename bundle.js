@@ -964,7 +964,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function getQuery() {
+  var queryText = window.location.href.slice(window.location.href.indexOf('#'));
+  var querySplit = queryText.split('&');
+  var queryResolved = {};
+  for (var query in querySplit) {
+    var queryKeyValue = query.split['='] || [];
+    queryResolved[queryKeyValue[0]] = queryKeyValue[1];
+  }
+  return queryResolved;
+}
+
 var Fragment = _react2.default.Fragment;
+
+var themes = ['light', 'dark'];
+var theme = themes[getQuery().theme] && getQuery().theme || themes[window.localStorage.theme] && window.localStorage.theme || 'light';
 
 var NavBar = function (_React$Component) {
   _inherits(NavBar, _React$Component);
@@ -994,6 +1008,8 @@ var NavBar = function (_React$Component) {
 }(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(NavBar, null), (0, _jquery2.default)('#nav').get(0));
+
+(0, _jquery2.default)('*').addClass(theme + '-theme');
 
 /***/ }),
 /* 15 */
@@ -28733,7 +28749,7 @@ exports = module.exports = __webpack_require__(30)(false);
 
 
 // module
-exports.push([module.i, "* {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\n    text-decoration: none;\r\n}\r\na:hover {\r\n    opacity: 0.6;\r\n}\r\n#nav {\r\n    background-image: url('/gradient.svg');\r\n    background-size: 100vw;\r\n    padding: 20px 20px 20px 20px;\r\n}\r\n.nav-item {\r\n    padding: inherit;\r\n    color: darkslategrey;\r\n}\r\nhtml, body {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\n    text-decoration: none;\r\n}\r\na:hover {\r\n    opacity: 0.6;\r\n}\r\n#nav {\r\n    padding: 20px 20px 20px 20px;\r\n    position: fixed;\r\n    width: 100vw;\r\n}\r\n#nav.light-theme {\r\n    background-color: whitesmoke;\r\n}\r\n#nav.dark-theme {\r\n    background-color: darkgrey\r\n}\r\n.nav-item {\r\n    padding: inherit;\r\n    color: darkslategrey;\r\n}\r\n.nav-item:hover {\r\n    opacity: 1;\r\n}\r\nhtml, body {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nbody.light-theme {\r\n    background-color: white;\r\n}\r\nbody.dark-theme {\r\n    background-color: darkslategrey;\r\n}", ""]);
 
 // exports
 

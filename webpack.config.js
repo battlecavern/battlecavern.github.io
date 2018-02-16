@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './main.jsx',
+  entry: ['babel-polyfill', './main.jsx'],
   output: {
     filename: 'bundle.js'
   },
@@ -14,7 +14,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'env']
+          presets: ['react', 'env', 'stage-0']
         }
       }
     ]

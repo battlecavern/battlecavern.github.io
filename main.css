@@ -8,15 +8,35 @@ a:hover {
     opacity: 0.6;
 }
 #nav {
-    background-image: url('/gradient.svg');
-    background-size: 100vw;
     padding: 20px 20px 20px 20px;
+    position: fixed;
+    width: 100vw;
+}
+#nav.light-theme {
+    background-color: whitesmoke;
+}
+#nav.dark-theme {
+    background-color: #3a5a5a;
 }
 .nav-item {
     padding: inherit;
+}
+.nav-item.light-theme {
     color: darkslategrey;
+}
+.nav-item.dark-theme {
+    color: whitesmoke;
+}
+.nav-item:hover {
+    opacity: 1;
 }
 html, body {
     margin: 0;
     padding: 0;
+}
+body.light-theme {
+    background-color: white;
+}
+body.dark-theme {
+    background-color: darkslategray; 
 }

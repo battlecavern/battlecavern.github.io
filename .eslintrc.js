@@ -5,5 +5,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     }
+  },
+  rules: {
+    'prefer-template': ['error']
   }
-}
+};
