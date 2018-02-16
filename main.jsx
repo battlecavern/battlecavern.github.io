@@ -63,6 +63,8 @@ ReactDOM.render(<NavBar />, $('#nav').get(0))
 
 $('*').addClass(`${theme}-theme`)
 
+/* Any theme-specific code starts here */
+
 if (getQuery().themeChange) {
   swal({
     type: 'success',
