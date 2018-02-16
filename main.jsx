@@ -5,6 +5,10 @@ import $ from 'jquery'
 import './main.css'
 
 function getQuery () {
+  /**
+   * Gets query from URL
+   * @returns {object} Query as Object
+   */
   let queryText = window.location.href.slice(
     window.location.href.indexOf('?') + 1
   )
