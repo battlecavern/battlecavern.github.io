@@ -53,11 +53,11 @@ body.dark-theme {
     cursor: pointer;
     white-space: nowrap;
 }
-#themeChanger:focus.nav-item.light-theme {
+#themeChanger:focus.light-theme {
     box-shadow: 0 0 0 2px whitesmoke, 0 0 0 4px #a7adb2;
     outline: none;
 }
-#themeChanger:focus {
+#themeChanger:focus.dark-theme {
     box-shadow: 0 0 0 2px #3a5a5a, 0 0 0 4px #a7adb2;
     outline: none;
 }
