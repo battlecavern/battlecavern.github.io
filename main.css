@@ -1,6 +1,12 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+*.dark-theme {
+    color: white;
+}
+*.light-theme {
+    color: black;
+}
 a {
     text-decoration: none;
 }
@@ -9,7 +15,7 @@ a:hover {
 }
 #nav {
     padding: 20px 20px 20px 20px;
-    position: fixed;
+    position: absolute;
     width: 100vw;
 }
 #nav.light-theme {
@@ -63,4 +69,11 @@ body.dark-theme {
 #themeChanger:focus.dark-theme {
     box-shadow: 0 0 0 2px #3a5a5a, 0 0 0 4px #a7adb2;
     outline: none;
+}
+.sticky {
+    top: 0;
+}
+#content.light-theme,
+#content.dark-theme {
+    padding: 90px 0 0 0;
 }

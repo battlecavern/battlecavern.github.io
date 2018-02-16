@@ -50,7 +50,9 @@ class NavBar extends React.Component {
   render () {
     return (
       <Fragment>
-        <button onClick={this.themeChange} id="themeChanger">Change Theme</button>
+        <button onClick={this.themeChange} id="themeChanger">
+          Change Theme
+        </button>
         <a href="/" className="nav-item" id="nav-home">
           Home
         </a>
@@ -65,9 +67,49 @@ $('*').addClass(`${theme}-theme`)
 
 /* Any theme-specific code starts here */
 
+if (theme === 'light') {
+  $('#banner').css({
+    'background-image': 'url(/img/banners/light.png)',
+    'background-size': '100vw',
+    height: 263 * ($(window).width() / 1545),
+    'background-repeat': 'no-repeat'
+  })
+  $(window).resize(() => {
+    $('#banner').css({ height: 263 * ($(window).width() / 1545) })
+  })
+}
+if (theme === 'dark') {
+  $('#banner').css({
+    'background-image': 'url(/img/banners/dark.png)',
+    'background-size': '100vw',
+    height: 250 * ($(window).width() / 1212),
+    'background-repeat': 'no-repeat'
+  })
+  $(window).resize(() => {
+    $('#banner').css({ height: 250 * ($(window).width() / 1212), 'background-size': '100vw' })
+  })
+}
+
 if (getQuery().themeChange) {
   swal({
     type: 'success',
     text: `Successfully changed to ${themeObject[getQuery().themeChange]} theme`
   })
+}
+
+/* Sticky NavBar */
+var navBar = $('#nav').get(0)
+var navOffset = navBar.offsetTop
+window.onscroll = stickTest
+
+function stickTest () {
+  if (window.pageYOffset >= navOffset) {
+    $(navBar)
+      .addClass('sticky')
+      .css({ position: 'fixed' })
+  } else {
+    $(navBar)
+      .removeClass('sticky')
+      .css({ position: 'absolute' })
+  }
 }
