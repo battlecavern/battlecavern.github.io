@@ -103,18 +103,14 @@ if (getQuery().themeChange) {
 }
 
 /* Sticky NavBar */
-var navBar = $('#nav').get(0)
-var navOffset = navBar.offsetTop
-window.onscroll = stickTest
-
-function stickTest () {
-  if (window.pageYOffset >= navOffset) {
-    $(navBar)
+window.scroll(() => {
+  if (window.pageYOffset >= $('#nav').offset().top) {
+    $('#nav')
       .addClass('sticky')
       .css({ position: 'fixed' })
   } else {
-    $(navBar)
+    $('#nav')
       .removeClass('sticky')
       .css({ position: 'absolute' })
   }
-}
+});
