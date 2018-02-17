@@ -113,4 +113,4 @@ window.scroll(() => {
       .removeClass('sticky')
       .css({ position: 'absolute' })
   }
-});
+})
