@@ -38,7 +38,8 @@ class NavBar extends React.Component {
     let { value: themeChange } = await swal({
       title: 'Change theme',
       input: 'select',
-      inputOptions: themeObject
+      inputOptions: themeObject,
+      showCancelButton: true
     })
     if (themeChange) {
       swal({
