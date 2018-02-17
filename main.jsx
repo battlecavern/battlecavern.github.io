@@ -46,7 +46,9 @@ class NavBar extends React.Component {
         title: 'Changing theme...',
         onOpen: () => {
           swal.showLoading()
-        }
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: false
       })
       window.localStorage.theme = themeChange
       window.location.replace(`?themeChange=${themeChange}`)
