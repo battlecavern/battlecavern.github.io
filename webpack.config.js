@@ -16,6 +16,10 @@ module.exports = {
         query: {
           presets: ['react', 'env', 'stage-0']
         }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   }

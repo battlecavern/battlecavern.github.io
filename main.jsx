@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Home, Menu, Code, ColorLens } from 'material-ui-icons'
 import swal from 'sweetalert2'
 import $ from 'jquery'
 import './main.css'
@@ -7,7 +8,7 @@ import './main.css'
 function getQuery () {
   /**
    * Gets query from URL
-   * @returns {object} Query as Object
+   * @returns {Object} - Query as Object
    */
   let queryText = window.location.href.slice(
     window.location.href.indexOf('?') + 1
@@ -22,7 +23,7 @@ function getQuery () {
   return queryResolved
 }
 
-const { Fragment } = React
+const { Fragment: F } = React
 const themeObject = {
   dark: 'Zekrom',
   light: 'Reshiram'
@@ -32,6 +33,15 @@ const theme =
   (themes.includes(getQuery().theme) && getQuery().theme) ||
   (themes.includes(window.localStorage.theme) && window.localStorage.theme) ||
   'light'
+const navElements = [
+  { name: 'Home', href: '/', id: 'home' },
+  {
+    name: 'GitHub',
+    href: '//github.com/battlecavern/battlecavern.github.io',
+    id: 'gh'
+  }
+]
+var sideBarOpen = false
 
 class NavBar extends React.Component {
   async themeChange () {
@@ -55,20 +65,104 @@ class NavBar extends React.Component {
     }
   }
   render () {
+    let elements = navElements.map(item => {
+      return (
+        <a
+          key={item.id}
+          id={`nav-${item.id}`}
+          className="nav-item"
+          href={item.href}
+        >
+          {item.name}
+        </a>
+      )
+    })
     return (
-      <Fragment>
+      <F>
         <button onClick={this.themeChange} id="themeChanger">
           Change Theme
         </button>
-        <a href="/" className="nav-item" id="nav-home">
-          Home
+        {elements}
+        <span id="nav-end" />
+      </F>
+    )
+  }
+}
+
+class MobileNavBar extends React.Component {
+  openSideBar () {
+    if (!sideBarOpen) {
+      $('#sidebar-container, #sidebar').show()
+      sideBarOpen = true
+      hideOnClickOutside('#sidebar', () => {
+        $('#sidebar-container').hide()
+        sideBarOpen = false
+      })
+    }
+  }
+  render () {
+    return (
+      <F>
+        <a
+          href="javascript:void(0)"
+          onClick={this.openSideBar}
+          id="menu-icon"
+          className="mobile-icon"
+        >
+          <Menu />
         </a>
-      </Fragment>
+        <a href="/" id="home-icon" className="mobile-icon">
+          <Home />
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={NavBar.prototype.themeChange}
+          id="theme-icon"
+          className="mobile-icon"
+        >
+          <ColorLens />
+        </a>
+        <a
+          href="//github.com/battlecavern/battlecavern.github.io"
+          id="gh-icon"
+          className="mobile-icon"
+        >
+          <Code />
+        </a>
+      </F>
+    )
+  }
+}
+
+class SideBar extends React.Component {
+  render () {
+    let elements = navElements.map(item => {
+      return (
+        <div key={item.id} className="sidebar-item-container">
+          <a
+            id={`sidebar-${item.id}`}
+            className="sidebar-item"
+            href={item.href}
+          >
+            {item.name}
+          </a>
+        </div>
+      )
+    })
+    return (
+      <F>
+        <button onClick={this.themeChange} id="themeChanger">
+          Change Theme
+        </button>
+        {elements}
+      </F>
     )
   }
 }
 
 ReactDOM.render(<NavBar />, $('#nav').get(0))
+ReactDOM.render(<MobileNavBar />, $('#nav-mobile').get(0))
+ReactDOM.render(<SideBar />, $('#sidebar').get(0))
 
 $('*').addClass(`${theme}-theme`)
 
@@ -76,10 +170,10 @@ $('*').addClass(`${theme}-theme`)
 
 if (theme === 'light') {
   $('#banner').css({
-    'background-image': 'url(/img/banners/light.png)',
-    'background-size': '100vw',
+    backgroundImage: 'url(/img/banners/light.png)',
+    backgroundSize: '100vw',
     height: 263 * ($(window).width() / 1545),
-    'background-repeat': 'no-repeat'
+    backgroundRepeat: 'no-repeat'
   })
   $(window).resize(() => {
     $('#banner').css({ height: 263 * ($(window).width() / 1545) })
@@ -87,13 +181,16 @@ if (theme === 'light') {
 }
 if (theme === 'dark') {
   $('#banner').css({
-    'background-image': 'url(/img/banners/dark.png)',
-    'background-size': '100vw',
+    backgroundImage: 'url(/img/banners/dark.png)',
+    backgroundSize: '100vw',
     height: 250 * ($(window).width() / 1212),
-    'background-repeat': 'no-repeat'
+    backgroundRepeat: 'no-repeat'
   })
   $(window).resize(() => {
-    $('#banner').css({ height: 250 * ($(window).width() / 1212), 'background-size': '100vw' })
+    $('#banner').css({
+      height: 250 * ($(window).width() / 1212),
+      backgroundSize: '100vw'
+    })
   })
 }
 
@@ -116,3 +213,55 @@ window.scroll(() => {
       .css({ position: 'absolute' })
   }
 })
+
+/* Sidebar for mobile devices */
+function elementFitsOnScreenX (element) {
+  /**
+   * Tests if the element fits on the screen width
+   * @param {(string|Object)} element - Selector or element to check
+   * @returns {boolean} - True if the element fits on the screen X axis
+   */
+  return $(element).width() + $(element).offset().left < $(window).width()
+}
+
+if (
+  (!elementFitsOnScreenX('#nav-end') || getQuery().mobile === 'true') &&
+  getQuery().mobile !== 'false'
+) {
+  $('#nav').hide()
+  $('#nav-mobile').show()
+  $('*').addClass('mobile')
+}
+$(window).resize(() => {
+  if (
+    (!elementFitsOnScreenX('#nav-end') || getQuery().mobile === 'true') &&
+    getQuery().mobile !== 'false'
+  ) {
+    $('#nav').hide()
+    $('#nav-mobile').show()
+    $('*').addClass('mobile')
+  } else {
+    $('#nav').show()
+    $('#nav-mobile, #sidebar, #sidebar-container').hide()
+    $('*').removeClass('mobile')
+  }
+})
+
+function hideOnClickOutside (selector, callback) {
+  const outsideClickListener = event => {
+    if (!$(event.target).closest(selector).length) {
+      if ($(selector).is(':visible')) {
+        $(selector).hide()
+        removeClickListener()
+
+        if (callback) callback()
+      }
+    }
+  }
+
+  const removeClickListener = () => {
+    document.removeEventListener('click', outsideClickListener)
+  }
+
+  document.addEventListener('click', outsideClickListener)
+}
