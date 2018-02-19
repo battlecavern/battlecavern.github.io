@@ -18,12 +18,18 @@ module.exports = function (grunt) {
         src: 'bundle.js',
         dest: 'bundle.js'
       }
+    },
+    cssmin: {
+      target: {
+        files: { 'main.css': ['main.css'] }
+      }
     }
   })
 
   grunt.loadNpmTasks('grunt-eslint')
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-webpack')
   grunt.loadNpmTasks('grunt-contrib-uglify-es')
 
-  grunt.registerTask('default', ['eslint', 'webpack', 'uglify'])
+  grunt.registerTask('default', ['eslint', 'cssmin', 'webpack', 'uglify'])
 }
