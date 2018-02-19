@@ -139,3 +139,6 @@ body {
 #sidebar.dark-theme {
     background-color: #3a5a5a;
 }
+#sidebar.light-theme {
+    background-color: whitesmoke;
+}
