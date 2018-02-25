@@ -37,7 +37,7 @@ const navElements = [
   { name: 'Home', href: '/', id: 'home' },
   {
     name: 'Discord',
-    href: 'https://discord.gg/2eXeuHD',
+    href: '//discord.gg/9qvScC8',
     id: 'discord'
   },
   {
