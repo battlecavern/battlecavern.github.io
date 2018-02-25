@@ -36,6 +36,11 @@ const theme =
 const navElements = [
   { name: 'Home', href: '/', id: 'home' },
   {
+    name: 'Discord',
+    href: 'https://discord.gg/2eXeuHD',
+    id: 'discord'
+  },
+  {
     name: 'GitHub',
     href: '//github.com/battlecavern/battlecavern.github.io',
     id: 'gh'
