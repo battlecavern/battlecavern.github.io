@@ -5,6 +5,15 @@ import swal from 'sweetalert2'
 import $ from 'jquery'
 import './main.scss'
 
+// Import Font(s)
+ReactDOM.render(
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i"
+    rel="stylesheet"
+  />,
+  $('head').get(0)
+)
+
 function getQuery () {
   /**
    * Gets query from URL
