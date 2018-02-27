@@ -70,7 +70,7 @@ a:hover {
     color: $dark;
 }
 .nav-item.dark-theme {
-    color: whitesmoke;
+    color: $light2;
 }
 .nav-item:hover {
     opacity: 1;
@@ -81,7 +81,7 @@ body {
     padding: 0;
 }
 body.light-theme {
-    background-color: white;
+    background-color: $light;
 }
 body.dark-theme {
     background-color: $dark;
