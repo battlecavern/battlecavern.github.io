@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Home, Menu, Code, ColorLens } from 'material-ui-icons'
 import swal from 'sweetalert2'
 import $ from 'jquery'
-import './main.css'
+import './main.scss'
 
 function getQuery () {
   /**
