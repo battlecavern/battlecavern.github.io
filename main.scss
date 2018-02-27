@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i');
+$fonts: 'Montserrat', Arial, Helvetica, sans-serif;
+$light: white;
+$light2: whitesmoke;
+$dark: darkslategrey;
+$dark2: #3a5a5a;
 
 * {
     font-family: Arial, Helvetica, sans-serif;
@@ -16,6 +21,10 @@
 }
 #content {
     z-index: 0;
+    * {
+        margin: 0 30px;
+        font-family: $fonts;
+    }
 }
 #nav-mobile {
     position: static;
@@ -48,17 +57,17 @@ a:hover {
 }
 #nav.light-theme,
 #nav-mobile.light-theme {
-    background-color: whitesmoke;
+    background-color: $light2;
 }
 #nav.dark-theme,
 #nav-mobile.dark-theme {
-    background-color: #3a5a5a;
+    background-color: $dark2;
 }
 .nav-item {
     padding: inherit;
 }
 .nav-item.light-theme {
-    color: darkslategrey;
+    color: $dark;
 }
 .nav-item.dark-theme {
     color: whitesmoke;
@@ -75,7 +84,7 @@ body.light-theme {
     background-color: white;
 }
 body.dark-theme {
-    background-color: darkslategray;
+    background-color: $dark;
 }
 #themeChanger {
     background-color: #3085d6;
@@ -93,11 +102,11 @@ body.dark-theme {
     background-color: #236bb0;
 }
 #themeChanger:focus.light-theme {
-    box-shadow: 0 0 0 2px whitesmoke, 0 0 0 4px #a7adb2;
+    box-shadow: 0 0 0 2px $light2, 0 0 0 4px #a7adb2;
     outline: none;
 }
 #themeChanger:focus.dark-theme {
-    box-shadow: 0 0 0 2px #3a5a5a, 0 0 0 4px #a7adb2;
+    box-shadow: 0 0 0 2px $dark2, 0 0 0 4px #a7adb2;
     outline: none;
 }
 .sticky {
@@ -109,10 +118,6 @@ body.dark-theme {
 }
 body {
     overflow-x: hidden;
-}
-#content * {
-    margin: 0 30px;
-    font-family: 'Montserrat', sans-serif;
 }
 .title {
     font-size: 300%;
@@ -137,8 +142,8 @@ body {
     padding: 10px 20px;
 }
 #sidebar.dark-theme {
-    background-color: #3a5a5a;
+    background-color: $dark2;
 }
 #sidebar.light-theme {
-    background-color: whitesmoke;
+    background-color: $light2;
 }
