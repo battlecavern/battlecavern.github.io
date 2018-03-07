@@ -1,8 +1,12 @@
+// Set up variables
 $fonts: 'Montserrat', Arial, Helvetica, sans-serif;
 $light: white;
 $light2: whitesmoke;
 $dark: darkslategrey;
 $dark2: #3a5a5a;
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i');
 
 * {
     font-family: Arial, Helvetica, sans-serif;
