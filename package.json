@@ -1,0 +1,52 @@
+{
+  "name": "battlecavern",
+  "version": "1.0.0",
+  "main": "main.jsx",
+  "repository": "git@github.com:battlecavern/battlecavern.github.io.git",
+  "author": "Battle Cavern Developers",
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "build": "npx webpack"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-minify": "^0.3.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "file-loader": "^1.1.6",
+    "grunt": "^1.0.2",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-webpack": "^3.0.2",
+    "node-sass": "^4.0.0",
+    "prettier": "^1.10.2",
+    "prettier-eslint": "^8.8.1",
+    "qunit": "^2.5.0",
+    "request": "^2.83.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "material-ui": "^1.0.0-beta.34",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sweetalert2": "^7.12.2"
+  }
+}
