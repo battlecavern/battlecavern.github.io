@@ -33,11 +33,11 @@ $dark2: #3a5a5a;
     h4,
     h5,
     h6 {
-        margin: 0;
+        margin: 0 10px;
     }
     div {
         margin: 0 30px;
-        * {
+        p {
             margin: inherit;
         }
     }
@@ -61,6 +61,12 @@ $dark2: #3a5a5a;
 }
 a {
     text-decoration: none;
+}
+a.dark-theme {
+    color: lightskyblue;
+}
+a.light-theme {
+    color: darkcyan;
 }
 a:hover {
     opacity: 0.6;

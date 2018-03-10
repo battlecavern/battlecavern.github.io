@@ -272,11 +272,14 @@ var headings = $('h1, h2, h3, h4, h5, h6')
 var names = []
 for (var heading, i = 0; i < headings.length; i++) {
   heading = headings[i]
-  let id = $(heading)
-    .text()
-    .replace(/\W/g, '-')
-    .replace(/_/g, '-')
-    .toLowerCase()
+  let id =
+    $(heading).attr('data-permalink') ||
+    $(heading)
+      .text()
+      .trim()
+      .replace(/\W/g, '-')
+      .replace(/_/g, '-')
+      .toLowerCase()
   while (names.includes(id)) {
     id += '-'
   }
@@ -286,7 +289,7 @@ for (var heading, i = 0; i < headings.length; i++) {
     .prepend(
       $('<span>')
         .attr('id', `${id}-permalink`)
-        .css({ margin: 0, opacity: 0, cursor: 'pointer' })
+        .css({ margin: 5, opacity: 0, cursor: 'pointer' })
         .click(() => {
           jumpTo(`#${id}`)
           window.location.replace(`#${id}`)
