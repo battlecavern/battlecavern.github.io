@@ -298,7 +298,6 @@ for (var heading, i = 0; i < headings.length; i++) {
 
 $(document).ready(() => {
   if ($(window.location.hash)) {
-    console.log('!!!1')
     jumpTo(window.location.hash)
   }
 })
