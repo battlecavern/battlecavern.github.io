@@ -149,9 +149,6 @@ class SideBar extends React.Component {
     })
     return (
       <F>
-        <button onClick={NavBar.prototype.themeChange} id="themeChanger">
-          Change Theme
-        </button>
         {elements}
       </F>
     )
