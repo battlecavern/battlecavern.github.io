@@ -317,7 +317,7 @@ for (var heading, i = 0; i < headings.length; i++) {
 }
 
 $(document).ready(() => {
-  if ($(window.location.hash)) {
+  if ($(window.location.hash).length) {
     jumpTo(window.location.hash)
   }
 })
