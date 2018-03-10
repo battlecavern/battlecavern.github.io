@@ -287,7 +287,10 @@ for (var heading, i = 0; i < headings.length; i++) {
       $('<span>')
         .attr('id', `${id}-permalink`)
         .css({ margin: 0, opacity: 0, cursor: 'pointer' })
-        .click(() => window.location.replace(`#${id}`))
+        .click(() => {
+          jumpTo(`#${id}`)
+          window.location.replace(`#${id}`)
+        })
     )
     .hover(
       () => $(`#${id}-permalink`).css({ opacity: 1 }),
