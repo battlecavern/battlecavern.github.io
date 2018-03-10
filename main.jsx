@@ -202,17 +202,34 @@ if (query.get('themeChange')) {
 }
 
 /* Sticky NavBar */
-window.scroll(() => {
-  if (window.pageYOffset >= $('#nav').offset().top) {
-    $('#nav')
-      .addClass('sticky')
-      .css({ position: 'fixed' })
-  } else {
-    $('#nav')
-      .removeClass('sticky')
-      .css({ position: 'absolute' })
-  }
-})
+if (
+  (!elementFitsOnScreenX('#nav-end') || query.get('mobile') === 'true') &&
+  query.get('mobile') !== 'false'
+) {
+  window.scroll(() => {
+    if (window.pageYOffset >= $('#nav-mobile').offset().top) {
+      $('#nav-mobile')
+        .addClass('sticky')
+        .css({ position: 'fixed' })
+    } else {
+      $('#nav-mobile')
+        .removeClass('sticky')
+        .css({ position: 'absolute' })
+    }
+  })
+} else {
+  window.scroll(() => {
+    if (window.pageYOffset >= $('#nav').offset().top) {
+      $('#nav')
+        .addClass('sticky')
+        .css({ position: 'fixed' })
+    } else {
+      $('#nav')
+        .removeClass('sticky')
+        .css({ position: 'absolute' })
+    }
+  })
+}
 
 /* Sidebar for mobile devices */
 
