@@ -85,16 +85,16 @@ a:hover {
 #nav-mobile.dark-theme {
     background-color: $dark2;
 }
-.nav-item {
+.nav-item, .sidebar-item {
     padding: inherit;
 }
-.nav-item.light-theme {
+.nav-item.light-theme, .sidebar-item.light-theme {
     color: $dark;
 }
-.nav-item.dark-theme {
+.nav-item.dark-theme, .sidebar-item.dark-theme {
     color: $light2;
 }
-.nav-item:hover {
+.nav-item:hover, .sidebar-item:hover {
     opacity: 1;
 }
 html,
