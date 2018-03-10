@@ -5,24 +5,7 @@ import swal from 'sweetalert2'
 import $ from 'jquery'
 import './main.scss'
 
-function getQuery () {
-  /**
-   * Gets query from URL
-   * @returns {Object} - Query as Object
-   */
-  let queryText = window.location.href.slice(
-    window.location.href.indexOf('?') + 1
-  )
-  let querySplit = queryText.split('&')
-  let queryResolved = {}
-  for (let i = 0, query; i < querySplit.length; i++) {
-    query = querySplit[i]
-    let queryKeyValue = query.toString().split('=') || []
-    queryResolved[queryKeyValue[0]] = queryKeyValue[1]
-  }
-  return queryResolved
-}
-
+const query = new window.URLSearchParams(window.location.search)
 const { Fragment: F } = React
 const themeObject = {
   dark: 'Zekrom',
@@ -30,7 +13,7 @@ const themeObject = {
 }
 const themes = ['light', 'dark']
 const theme =
-  (themes.includes(getQuery().theme) && getQuery().theme) ||
+  (themes.includes(query.get('theme')) && query.get('theme')) ||
   (themes.includes(window.localStorage.theme) && window.localStorage.theme) ||
   'light'
 const navElements = [
@@ -199,10 +182,12 @@ if (theme === 'dark') {
   })
 }
 
-if (getQuery().themeChange) {
+if (query.get('themeChange')) {
   swal({
     type: 'success',
-    text: `Successfully changed to ${themeObject[getQuery().themeChange]} theme`
+    text: `Successfully changed to ${
+      themeObject[query.get('themeChange')]
+    } theme`
   })
 }
 
@@ -220,18 +205,19 @@ window.scroll(() => {
 })
 
 /* Sidebar for mobile devices */
+
+/**
+ * Tests if the element fits on the screen width
+ * @param {(string|Object)} element - Selector or element to check
+ * @returns {boolean} - True if the element fits on the screen X axis
+ */
 function elementFitsOnScreenX (element) {
-  /**
-   * Tests if the element fits on the screen width
-   * @param {(string|Object)} element - Selector or element to check
-   * @returns {boolean} - True if the element fits on the screen X axis
-   */
   return $(element).width() + $(element).offset().left < $(window).width()
 }
 
 if (
-  (!elementFitsOnScreenX('#nav-end') || getQuery().mobile === 'true') &&
-  getQuery().mobile !== 'false'
+  (!elementFitsOnScreenX('#nav-end') || query.get('mobile') === 'true') &&
+  query.get('mobile') !== 'false'
 ) {
   $('#nav').hide()
   $('#nav-mobile').show()
@@ -239,8 +225,8 @@ if (
 }
 $(window).resize(() => {
   if (
-    (!elementFitsOnScreenX('#nav-end') || getQuery().mobile === 'true') &&
-    getQuery().mobile !== 'false'
+    (!elementFitsOnScreenX('#nav-end') || query.get('mobile') === 'true') &&
+    query.get('mobile') !== 'false'
   ) {
     $('#nav').hide()
     $('#nav-mobile').show()
