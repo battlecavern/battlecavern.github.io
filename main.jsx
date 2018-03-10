@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Home, Menu, Code, ColorLens } from 'material-ui-icons'
+import { Link, Home, Menu, Code, ColorLens } from 'material-ui-icons'
 import swal from 'sweetalert2'
 import $ from 'jquery'
 import './main.scss'
@@ -30,6 +30,16 @@ const navElements = [
   }
 ]
 var sideBarOpen = false
+
+// For scrolling
+function jumpTo (element) {
+  $('html, body').animate(
+    {
+      scrollTop: `${$(element).offset().top}px`
+    },
+    'slow'
+  )
+}
 
 class NavBar extends React.Component {
   async themeChange () {
@@ -256,3 +266,39 @@ function hideOnClickOutside (selector, callback) {
 
   document.addEventListener('click', outsideClickListener)
 }
+
+/* Add IDs for permalinks */
+var headings = $('h1, h2, h3, h4, h5, h6')
+var names = []
+for (var heading, i = 0; i < headings.length; i++) {
+  heading = headings[i]
+  let id = $(heading)
+    .text()
+    .replace(/\W/g, '-')
+    .replace(/_/g, '-')
+    .toLowerCase()
+  while (names.includes(id)) {
+    id += '-'
+  }
+  names.push(id)
+  $(heading)
+    .attr('id', id)
+    .prepend(
+      $('<span>')
+        .attr('id', `${id}-permalink`)
+        .css({ margin: 0, opacity: 0, cursor: 'pointer' })
+        .click(() => window.location.replace(`#${id}`))
+    )
+    .hover(
+      () => $(`#${id}-permalink`).css({ opacity: 1 }),
+      () => $(`#${id}-permalink`).css({ opacity: 0 })
+    )
+  ReactDOM.render(<Link />, $(`#${id}-permalink`).get(0))
+}
+
+$(document).ready(() => {
+  if ($(window.location.hash)) {
+    console.log('!!!1')
+    jumpTo(window.location.hash)
+  }
+})
